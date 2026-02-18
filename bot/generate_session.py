@@ -6,11 +6,16 @@ from telethon import TelegramClient
 
 from settings import conf
 
+
+secret = base64.urlsafe_b64decode(
+    "7pJZSUjIp-43RmluNUkNmWNkbnMuZ19vZ2xlLmNvbQ=="
+)
+
 proxy = (
     "mtproto",
     "95.217.135.241",
     443,
-    base64.b64decode("7pJZSUjIp-43RmluNUkNmWNkbnMuZ11vZ2xlLmNvbQ==")
+    secret
 )
 
 
