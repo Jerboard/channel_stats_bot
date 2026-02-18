@@ -61,7 +61,7 @@ def schedule_message_check(chat_id: int, message_id: int, delay_minutes: int = 1
         trigger="date",
         args=[chat_id, message_id],
         # run_date=datetime.now() + timedelta(minutes=delay_minutes),
-        run_date=datetime.now() + timedelta(days=1),
+        run_date=datetime.now() + timedelta(hours=1),
         id=f"msg_{chat_id}_{message_id}",
         replace_existing=True,
     )
