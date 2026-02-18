@@ -1,0 +1,77 @@
+# ======================
+# Python
+# ======================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtualenv
+venv/
+.venv/
+env/
+ENV/
+
+# ======================
+# PyCharm
+# ======================
+.idea/
+*.iml
+
+# ======================
+# Environment
+# ======================
+.env
+*.env
+bot/.env
+
+# ======================
+# Secrets
+# ======================
+google_credentials.json
+*.session
+sessions/
+
+# ======================
+# APScheduler / SQLite
+# ======================
+scheduler.db
+*.sqlite3
+*.db
+
+# ======================
+# Logs
+# ======================
+logs/
+*.log
+
+# ======================
+# Docker
+# ======================
+docker-compose.override.yml
+*.tar
+
+# ======================
+# OS
+# ======================
+.DS_Store
+Thumbs.db
+
+# ======================
+# Testing / Coverage
+# ======================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ======================
+# Mypy / Ruff / cache
+# ======================
+.mypy_cache/
+.ruff_cache/
+
+# ======================
+# Build
+# ======================
+build/
+dist/
+*.egg-info/

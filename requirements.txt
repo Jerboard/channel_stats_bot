@@ -1,0 +1,6 @@
+telethon
+gspread
+apscheduler
+python-dotenv
+sqlalchemy
+google-auth
