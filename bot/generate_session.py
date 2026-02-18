@@ -1,16 +1,26 @@
 import asyncio
 import logging
+import base64
 
 from telethon import TelegramClient
 
 from settings import conf
+
+proxy = (
+    "mtproto",
+    "95.217.135.241",
+    443,
+    base64.b64decode("7pJZSUjIp-43RmluNUkNmWNkbnMuZ11vZ2xlLmNvbQ==")
+)
+
 
 
 async def main():
     async with TelegramClient(
             conf.session_name,
             conf.api_id,
-            conf.api_hash
+            conf.api_hash,
+            proxy=proxy
     ) as client:
         await client.start(phone=conf.phone)
         print("✅ Сессия создана")
