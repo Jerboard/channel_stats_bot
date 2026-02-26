@@ -7,15 +7,6 @@ import base64
 
 from settings import conf
 
-
-# proxy = (
-#     "mtproto",
-#     "95.217.135.241",
-#     443,
-#     base64.b64decode("7pJZSUjIp-43RmluNUkNmWNkbnMuZ11vZ2xlLmNvbQ==")
-# )
-
-# client = TelegramClient(conf.session_name, conf.api_id, conf.api_hash, proxy=proxy)
 client = TelegramClient(conf.session_name, conf.api_id, conf.api_hash)
 
 jobstores = {

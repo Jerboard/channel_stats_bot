@@ -1,8 +1,9 @@
 import asyncio
 import logging
 
-from init import scheduler
 from handlers.channel_listener import client
+from tasks import start_scheduler
+
 
 
 log = logging.getLogger(__name__)
@@ -10,9 +11,10 @@ logging.basicConfig(level=logging.INFO)
 
 
 async def main():
-    scheduler.start()
-    await client.start()
+    # await start_scheduler()
     await client.connect()
+    await start_scheduler()
+
     print("Авторизован, запускаем обработчики…")
     await client.run_until_disconnected()
 

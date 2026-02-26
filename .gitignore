@@ -1,3 +1,10 @@
+/bot/.env
+/bot/cred.json
+/bot/scheduler.db
+/bot/telethon_session_test.session
+/bot/telethon_session_test.session-journal
+
+
 # ======================
 # Python
 # ======================
