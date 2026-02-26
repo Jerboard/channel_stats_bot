@@ -73,7 +73,7 @@ htmlcov/
 # ======================
 # Mypy / Ruff / cache
 # ======================
-.mypy_cache/
+.mypy_cache/m
 .ruff_cache/
 
 # ======================
@@ -82,3 +82,5 @@ htmlcov/
 build/
 dist/
 *.egg-info/
+
+*.json

@@ -12,8 +12,8 @@ class Config:
     def __post_init__(self):
         self.session_dir.mkdir(exist_ok=True)
 
-    # debug = getenv('DEBUG') == '1'
-    debug = getenv('DEBUG') == '0'
+    debug = getenv('DEBUG') == '1'
+    # debug = getenv('DEBUG') == '0'
     if debug:
         api_id = getenv('STATS_API_ID_TEST')
         api_hash = getenv('STATS_API_HASH_TEST')
