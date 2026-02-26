@@ -65,7 +65,7 @@ async def check_message(chat_id: int, message_id: int):
     formatted_time = moscow_time.strftime("%Y-%m-%d %H:%M:%S")
 
     row = [formatted_time, msg.chat.title, msg_type, text, views, reactions_str]
-    await append_stats_row(row=row, worksheet_title=conf.sheet_name_2)
+    await append_stats_row(row=row, worksheet_title=conf.sheet_name_2, table_range='A2')
 
 
 def schedule_message_check(chat_id: int, message_id: int, delay_minutes: int = 1):
