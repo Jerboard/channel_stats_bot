@@ -14,7 +14,7 @@ async def start_scheduler():
     scheduler.add_job(
         collect_channels_summary,
         trigger="cron",
-        hour=3,
+        hour=21,
         minute=0,
         id="collect_channels_summary",
         replace_existing=True,
