@@ -9,8 +9,11 @@ from init import scheduler, client
 from settings import conf
 from google_sheets import append_stats_row
 
+logger = logging.getLogger(__name__)
+
 
 async def start_scheduler():
+    # await collect_channels_summary()
     scheduler.add_job(
         collect_channels_summary,
         trigger="cron",
@@ -100,6 +103,7 @@ async def collect_channels_summary() -> None:
     else:
         previous_data = {}
 
+    logger.warning(f'previous_data: {conf.subscribers_file.exists()} {previous_data}')
     updated_data = {}
     result_row = [formatted_time]
 
@@ -110,7 +114,9 @@ async def collect_channels_summary() -> None:
     for chat_id in channel_ids:
         logging.warning(f'cccc {chat_id}')
         try:
-            previous_subscribers = previous_data.get(chat_id, 0)
+            previous_subscribers = previous_data.get(str(chat_id), 0)
+
+            logging.warning(f'previous_subscribers {previous_subscribers}')
 
             # --- Подписчики сейчас ---
             entity = await client.get_entity(chat_id)
@@ -173,4 +179,4 @@ async def collect_channels_summary() -> None:
     with open(conf.subscribers_file, "w", encoding="utf-8") as f:
         json.dump(updated_data, f, indent=2)
 
-    await append_stats_row(row=result_row, worksheet_title=conf.sheet_name_1, table_range='A4')
+    # await append_stats_row(row=result_row, worksheet_title=conf.sheet_name_1, table_range='A4')
