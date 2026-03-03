@@ -4,12 +4,13 @@ from telethon import events
 from telethon.types import Message
 
 from init import client
+from settings import conf
 from tasks import schedule_message_check
 
 
 @client.on(events.NewMessage)
 async def channel_message_handler(event):
-    if not event.is_channel:
+    if not event.is_channel and event.chat_id not in [conf.channel_1, conf.channel_2]:
         return
 
     message = event.message

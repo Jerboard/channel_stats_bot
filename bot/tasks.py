@@ -179,4 +179,4 @@ async def collect_channels_summary() -> None:
     with open(conf.subscribers_file, "w", encoding="utf-8") as f:
         json.dump(updated_data, f, indent=2)
 
-    # await append_stats_row(row=result_row, worksheet_title=conf.sheet_name_1, table_range='A4')
+    await append_stats_row(row=result_row, worksheet_title=conf.sheet_name_1, table_range='A4')
