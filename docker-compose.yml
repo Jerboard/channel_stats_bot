@@ -6,8 +6,8 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
-    ports:
-      - "5432:5432"
+#    ports:
+#      - "5432:5432"
     env_file:
       - ./bot/.env
 
@@ -15,7 +15,7 @@ services:
     image: elestio/pgadmin
     container_name: pgadmin_stats
     ports:
-      - "8080:80"
+      - "8180:80"
     volumes:
       - pgadmin_data:/var/lib/pgadmin
       - ../logs/pgadmin:/var/log/pgadmin
