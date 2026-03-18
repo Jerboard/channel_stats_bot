@@ -1,7 +1,7 @@
 FROM python:3.13.5
 
 # Установка системных зависимостей, включая tesseract и языковые паки
-RUN #apt-get update
+#RUN apt-get update
 
 WORKDIR /app
 
@@ -10,4 +10,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY bot/ .
 
-CMD ["sh", "-c", "python main.py"]
+#CMD ["sh", "-c", "python main.py"]
+CMD ["sh", "-c", "alembic upgrade head && python main.py"]

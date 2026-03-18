@@ -19,6 +19,5 @@ async def channel_message_handler(event):
     schedule_message_check(
         chat_id=event.chat_id,
         message_id=message.id,
-        delay_minutes=1,
     )
 

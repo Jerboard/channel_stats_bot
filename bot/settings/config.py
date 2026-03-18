@@ -37,6 +37,8 @@ class Config:
         channel_1 = -1001342572355
         channel_2 = -1001613808696
 
+    channel_ids = [channel_1, channel_2]
+
     sheet_name_1 = 'СтатТГбот'
     sheet_name_2 = 'СтатТГбот (посты)'
 
@@ -44,6 +46,13 @@ class Config:
     session_path = session_dir / session_name
 
     subscribers_file = Path("subscribers.json")
+    
+    db_host = getenv('DB_HOST')
+    db_port = getenv('DB_PORT')
+    db_name = getenv('POSTGRES_DB')
+    db_user = getenv('POSTGRES_USER')
+    db_password = getenv('POSTGRES_PASSWORD')
+    db_url = f'postgresql+asyncpg://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}'
 
     # redis_host = getenv('REDIS_HOST')
     # redis_port = int(getenv('REDIS_PORT'))

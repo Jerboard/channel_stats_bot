@@ -1,5 +1,28 @@
 
 services:
+  db:
+    image: postgres:17
+    container_name: db_stats
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    env_file:
+      - ./bot/.env
+
+  pgadmin:
+    image: elestio/pgadmin
+    container_name: pgadmin_stats
+    ports:
+      - "8080:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+      - ../logs/pgadmin:/var/log/pgadmin
+    restart: unless-stopped
+    env_file:
+      - ./bot/.env
+
   bot:
     build:
       context: .
@@ -14,3 +37,6 @@ services:
     env_file:
       - ./bot/.env
 
+volumes:
+  postgres_data:
+  pgadmin_data:
